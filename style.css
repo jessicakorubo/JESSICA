@@ -434,13 +434,13 @@ html.sr .load-hidden {
 
 /* MOBILE SCREEN */
 @media screen and (max-width: 850px) {
-    div.mobileA{
-        display: grid;
-        place-items: center;
-        color: white;
+    body {
+        background-image: url(images/laptop-coding.jpg);
+        /* background-size: cover; */
+        background-color: whitesmoke;
+        background-repeat: no-repeat;
     }
     .mainAll {
-        
         display: none;
     }
     .hero {
@@ -449,5 +449,46 @@ html.sr .load-hidden {
     }
     .contactDetails * {
         width: 14rem;
+    }
+
+    @keyframes mobileAnime {
+        0% {
+            left:0;
+            top:0;
+        }
+        25% {
+            top: 0;
+            left: 90px;
+        }
+        50% {
+            top: 70px;
+            left: 90px;
+        }
+        80% {
+            top: -70px;
+            left:0px;
+        }
+        100%{
+            top:0;
+            left:0;
+        }
+        
+    }
+    div.mobileA{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: black;
+        animation-fill-mode: backwards;
+        height: 250px;
+        width: 250px;
+        padding: 0 1rem;
+        margin-top: 40%;
+        animation-name: mobileAnime;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        background-image: linear-gradient(to right, cyan, rgb(236, 190, 92));
     }
 }
