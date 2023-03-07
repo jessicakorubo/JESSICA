@@ -434,7 +434,7 @@ html.sr .load-hidden {
 
 /* MOBILE SCREEN */
 @media screen and (max-width: 850px) {
-    .mobileA{
+    div.mobileA{
         display: grid;
         place-items: center;
         color: white;
