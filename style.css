@@ -23,6 +23,7 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+
 }
 body {
     width: 99vw;
@@ -42,6 +43,7 @@ body {
     background-size: cover;
     /* background-color: #1e1a33; */
     /* background-position: 20% 50%; */
+    overflow-x: hidden;
     /* background-attachment: fixed; */   
 }
 .mainAll a {
@@ -51,6 +53,7 @@ body {
     margin-top: 1rem;
     display: grid;
     place-items: center;
+    
 }
 .titleHeader {
     width: fit-content;
@@ -600,27 +603,19 @@ html.sr .load-hidden {
         transition: 2s all;
     }
 
-/* END OF NAVBAR SECTION FOR MOBILE */
- 
-  
+/* END OF NAVBAR SECTION FOR MOBILE */  
     .hero {
-         
         margin-top: 5rem;
         display: flex;
         flex-direction: column-reverse;
-     
     }
-
     .heroLeft {
         padding-left: 1rem ;
     }
     .heroRight{
         width: 90%;
-
         display: grid;
-            
         place-items: center;
-            
     }
     .rightImage img {
         width: 250px;
@@ -630,14 +625,13 @@ html.sr .load-hidden {
         object-fit: cover;
     }   
     .rightImage::before{
-        
-        left:150px;
+        display: none;
+        left:250px;
         bottom: 215px;
     }
-    .rightImage::after{
-        display: none;
+    .rightImage::after {
+        left: 200px;
     }
-   
     .contactDetails * {
         width: 14rem;
     }
