@@ -687,6 +687,9 @@ html.sr .load-hidden {
         place-items: center;
         align-items: center;
     }
+    .sites {
+        width: 100%;
+    }
     .upperSite {
         gap: 3rem;
         margin-left: 0;
