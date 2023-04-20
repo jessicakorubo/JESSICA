@@ -689,6 +689,7 @@ html.sr .load-hidden {
     }
     .sites {
         width: 100%;
+        height: 260px;
     }
     .upperSite {
         gap: 3rem;
