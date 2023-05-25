@@ -41,3 +41,5 @@ ScrollReveal().reveal('.aboutImage');
 
 ScrollReveal().reveal('.sites', { interval: 500 });
 
+
+ 
