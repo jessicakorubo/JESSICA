@@ -25,6 +25,9 @@
     scroll-behavior: smooth;
 
 }
+.submit {
+    background-color: blue;
+}
 body {
     width: 99vw;
     background-color: black;
@@ -208,6 +211,7 @@ body {
     display: none;
 }
 
+
 /* ABOUT SECTION FOR DESKTOP */
 .about {
     padding: 7rem 0.5rem;
@@ -314,6 +318,7 @@ h2.aboutTextTitle  {
     background-image: url(images/BGRIGHT.png), url(images/BGLEFT.png);
     /* background-color: #1e1a33; */
     color: white;
+    height: fit-content;
     background-repeat: no-repeat no-repeat;
     background-position: 0% 50%, 100% 10%;
     /* background-color: whitesmoke; */
@@ -332,14 +337,15 @@ h2.aboutTextTitle  {
 }
 .serviceGrid {
     display: grid;
+    min-height: 30rem;
     column-gap: 4rem;
     grid-template-columns: 30% 70%;
     grid-template-rows: auto;
 }
 
 .sites {
-    height: 240px;
-    width: 380px;
+    /* height: 240px;
+    width: 380px; */
     border-style:inset;
     border: 3px inset #3795BD;
     box-shadow: 3px 5px 10px #3795BD;
@@ -352,7 +358,7 @@ h2.aboutTextTitle  {
 }
 .upperSite {
     /* transition: margin 0.2s ease-in-out; */
-    height: 250px;
+    /* height: 250px; */
     display: flex;
 }
 .lowerSite {
@@ -394,7 +400,7 @@ p#textParagraph {
     border: none;
 }
 #learnMore {
-    display: none;
+    /* display: none; */
     margin-top: 3rem;
 }
 .moreProjects {
@@ -403,13 +409,16 @@ p#textParagraph {
     justify-content: center;
     align-items: center;
 }
-.moreProjects button {
+.moreProjects a {
     border-radius: 20px;
     cursor: pointer;
-    transition: 0.6s all;
-}
-.moreProjects button:hover {
+    text-decoration: none;
     background-color:rgb(25, 43, 242);
+    transition: 0.6s all;
+    padding: 0.5rem 1rem;
+}
+.moreProjects a:hover {
+    
     box-shadow: 1px 3px 4px white;
     border-color: transparent;
     
@@ -529,8 +538,21 @@ html.sr .load-hidden {
 .mobileBtn {
     display: none;
 }
+.mobileBtn2 {
+        display: none;
+    }
+    .mobs {
+        display: none;
+    }
+/* TABLET SCREEN */
+@media screen and (max-width: 925px) {
+    .serviceGrid {
+        display: flex;
+        flex-direction: column;
+    }
+}
 /* MOBILE SCREEN */
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 685px) {
 
     body {
         overflow-x: hidden;
@@ -663,9 +685,13 @@ html.sr .load-hidden {
     }
     /* END OF ABOUT SECTION */
 
-    /* BEGINNING OF PORTFOLIO SECTION */
+    /* BEGINNING OF PORTFOLIO SECTION FOR MOBILE */
     #learnMore {
+        margin-top: 5rem;
         display: contents;
+    }
+    #learnMore a {
+        text-decoration: none;
     }
     .services {
         padding: 2rem 1rem 2rem 1rem;
@@ -677,23 +703,39 @@ html.sr .load-hidden {
     .noDisplay {
         display: none;
     }
+    .display {
+        display: block;
+    }
+    .mobs {
+        display: block;
+    }
+    .desk {
+        display: none;
+    }
+    .mobileBtn2 {
+        display: block;
+    }
     .galleryContainer {
         height: 80rem;
     }
     .examples {
         height: max-content;
         margin-top: 4rem;
-        display: grid;
+        /* display: grid;
         place-items: center;
-        align-items: center;
+        align-items: center; */
+        display: flex;
+        flex-direction: column;
     }
     .sites {
         width: 100%;
-        height: 260px;
+        height: fit-content;
+        /* margin: inherit 5rem; */
     }
     .upperSite {
         gap: 3rem;
         margin-left: 0;
+        /* margin-bottom: 8rem; */
         display:flex;
         flex-direction: column;
     }
@@ -703,13 +745,13 @@ html.sr .load-hidden {
         margin-left: 0;
         display:flex;
         flex-direction: column;
-        margin-top:20rem;
+        /* margin-top:15rem; */
         padding-bottom: 3rem;
     }
     .mobileBtn {
         
         text-align: center;
-        /* margin-top: 10rem; */
+        margin-top: 10rem;
         display: contents;
         justify-content: center;
         
@@ -723,6 +765,7 @@ html.sr .load-hidden {
     .desktopBtn {
         display: none;
     }
+    
     /* @keyframes mobileAnime {
         0% {
             left:0;
@@ -764,3 +807,5 @@ html.sr .load-hidden {
         background-image: linear-gradient(to right, cyan, rgb(236, 190, 92));
     } */
 }
+
+

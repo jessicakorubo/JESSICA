@@ -33,13 +33,13 @@ hamburger.addEventListener('click', ()=>{
 
 const displayProjects = () => {
     console.log('Working');
-    galleryContainer.classList.toggle('noDisplay');
+    galleryContainer.classList.toggle('display');
 }
 
 ScrollReveal().reveal('.aboutImage');
 // ScrollReveal().reveal('.aboutText');  //delay
 
-ScrollReveal().reveal('.sites', { interval: 500 });
+// ScrollReveal().reveal('.sites', { interval: 500 });
 
 
  
