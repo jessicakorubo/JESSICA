@@ -1168,19 +1168,22 @@
 
       <div class="about-grid">
         <div class="photo-col" style="display:flex;flex-direction:column;align-items:center;gap:16px">
-  <div style="position:relative;width:220px;height:220px">
-    <img 
-      src="Images/my_image.png" 
-      alt="Jessica Korubo"
-      style="width:220px;height:220px;border-radius:16px;border:1px solid rgba(244,167,185,.2);object-fit:cover;"
-    />
-    <!-- Decorative accent borders -->
-    <div style="position:absolute;top:-6px;left:-6px;right:6px;bottom:-6px;border-radius:18px;border:1px solid rgba(244,167,185,.35);pointer-events:none"></div>
-    <div style="position:absolute;top:6px;left:6px;right:-6px;bottom:6px;border-radius:14px;border:1px solid rgba(126,232,216,.2);pointer-events:none"></div>
-  </div>
-  <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--white)">Jessica Korubo</div>
-  <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose)">Software Engineer</div>
-</div>
+          <div style="position:relative;width:220px;height:220px">
+            <img src="Images/my_image.png" alt="Jessica Korubo"
+              style="width:220px;height:220px;border-radius:16px;border:1px solid rgba(244,167,185,.2);object-fit:cover;" />
+            <!-- Decorative accent borders -->
+            <div
+              style="position:absolute;top:-6px;left:-6px;right:6px;bottom:-6px;border-radius:18px;border:1px solid rgba(244,167,185,.35);pointer-events:none">
+            </div>
+            <div
+              style="position:absolute;top:6px;left:6px;right:-6px;bottom:6px;border-radius:14px;border:1px solid rgba(126,232,216,.2);pointer-events:none">
+            </div>
+          </div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--white)">Jessica Korubo</div>
+          <div
+            style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose)">
+            Software Engineer</div>
+        </div>
         <div class="about-text reveal">
           <p>
             I'm a <strong>software engineer</strong> with a passion for building systems that
@@ -1582,18 +1585,20 @@
           </div>
         </div>
 
-        <form class="contact-form reveal reveal-delay-1" onsubmit="handleSubmit(event)">
+        <form class="contact-form reveal reveal-delay-1" action="https://formspree.io/f/mkoaznro" method="POST"
+          onsubmit="handleSubmit(event)">
           <div class="form-group">
             <label class="form-label">Your Name</label>
-            <input class="form-input" type="text" placeholder="Jane Doe" />
+            <input class="form-input" name="name" type="text" placeholder="Jane Doe" />
           </div>
           <div class="form-group">
             <label class="form-label">Email Address</label>
-            <input class="form-input" type="email" placeholder="jane@example.com" />
+            <input class="form-input" name="Email" type="email" placeholder="jane@example.com" />
           </div>
           <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea class="form-textarea" placeholder="Tell me about your project or opportunity..."></textarea>
+            <textarea class="form-textarea" name="message"
+              placeholder="Tell me about your project or opportunity..."></textarea>
           </div>
           <button type="submit" class="btn-rose" style="cursor:none;border:none;width:fit-content">
             <i class="fas fa-paper-plane"></i> Send Message
@@ -1675,16 +1680,38 @@
     });
 
     /* ── Form submit ─── */
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = 'linear-gradient(135deg,#4ade80,#22c55e)';
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        btn.style.background = '';
+      const data = new FormData(e.target);
+
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
+
+      const response = await fetch(e.target.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+        btn.style.background = 'linear-gradient(135deg,#4ade80,#22c55e)';
         e.target.reset();
-      }, 3000);
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      } else {
+        btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed — Try Again';
+        btn.style.background = 'linear-gradient(135deg,#f87171,#ef4444)';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          btn.style.background = '';
+        }, 3000);
+      }
     }
   </script>
 
